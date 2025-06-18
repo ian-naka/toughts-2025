@@ -9,6 +9,8 @@ const app = express() // inicializacao do express
 
 const conn = require('./db/conn')
 
+const Tought = require('./models/Tought')
+const User = require('./models/User')
 //definicao de template engine
 
 app.engine('handlebars', exphbs.engine())
@@ -57,6 +59,7 @@ app.use((req, res, next) =>
 })
 conn
     .sync()
+   // .sync({force: true})
     .then(() => {
         app.listen(3000)
     })
