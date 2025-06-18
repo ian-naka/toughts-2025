@@ -24,22 +24,22 @@ app.use(express.json())
 //session middleware
 app.use(
     session({
-    name:'session',
-    secret:'nosso_secret',
-    resave: false,
-    saveUninitialized: false,
-    store: new FileStore({
-        logFn: function(){},
-        path: require('path').join(require('os').tmpdir(), 'sessions'),
-    }),
-    cookie: {
-        secure: false,
-        maxAge: 360000,
-        expires: new Date(Date.now() + 360000),
-        httpOnly: true,
-    }
-}),
-)
+        name: 'session',
+        secret: 'nosso_secret',
+        resave: false,
+        saveUninitialized: false,
+        store: new FileStore({
+            logFn: function () {},
+            path: require('path').join(require('os').tmpdir(), 'sessions'),
+        }),
+        cookie: {
+            secure: false,
+            maxAge: 360000,
+            expires: new Date(Date.now() + 360000),
+            httpOnly: true,
+        },
+    })
+);
 // flash messages
 app.use(flash())
 
