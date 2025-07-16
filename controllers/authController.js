@@ -9,6 +9,7 @@ module.exports = class authController{
         res.render('auth/register')
     }
     
+    
 static async registerPost(req, res) {
 
     const {name, email, password, confirmpassword } = req.body
@@ -61,4 +62,8 @@ static async registerPost(req, res) {
         console.log(err)
     }
 }
+static logout(req, res){
+        req.session.destroy()
+        res.redirect('/login')
+    }
 }
