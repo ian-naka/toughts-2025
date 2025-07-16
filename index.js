@@ -12,6 +12,11 @@ const Tought = require('./models/Tought')
 const User = require('./models/User')
 //definicao de template engine
 
+//routes
+const toughtsRoutes = require('./routes/toughtsRoutes')
+//controller
+const ToughtsController = require('./controllers/ToughtController')
+
 app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')
 
@@ -56,6 +61,11 @@ app.use((req, res, next) =>
 
     next() 
 })
+
+//routes
+
+app.use('/toughts', toughtsRoutes)
+app.get('/', ToughtsController.showToughts)
 conn
     .sync()
    // .sync({force: true})
