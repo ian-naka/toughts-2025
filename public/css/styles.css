@@ -108,6 +108,23 @@ form input[type='submit']:hover,
     color: #fff;
 }
 
+.tought-form-control a{
+    color: #F6982d;
+}
+.tought-form-control a:hover{
+    color: #FFF;
+}
+.tought-form-control h1{
+    margin: 1em 0;
+    color: #fff;
+    border-left: 4px solid #F6982d;
+    padding: .3em;
+}
+.tought-form-control form{
+   max-width: 30%;
+   margin-top: 1.5em;
+}
+
 footer{
     height: 150px;
     display: flex;
