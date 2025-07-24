@@ -66,4 +66,24 @@ module.exports = class ToughtsController{
 
         res.render('toughts/edit' , { tought })
     }
+
+    static async updateToughtSave(req,res){
+        
+        const id = req.body.id
+
+        const tought = {
+            title: req.body.title
+        }
+
+        await Tought.update(tought, {where: {id: id}})
+
+        try {
+            req.flash('message', 'O pensamento foi atualizado!')
+            req.session.save(() => {
+            res.redirect('/toughts/dashboard')
+        })
+        } catch (error) {
+            console.log(`Aconteceu um erro: ${error}`)
+        }
+    }
 }
